@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+service Peerstore {
+	rpc Subscribe(SubscribeRequest) returns (SubscribeResponse) {}
+	rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeResponse) {}
+	rpc GetPeers(GetPeersRequest) returns (GetPeersResponse) {}
+}
+	
+message SubscribeRequest {
+	// Protocol version 1.0
+	float version = 1;
+	PeerInfo peer = 2;
+}
+
+message SubscribeResponse {
+	float version = 1;
+}
+
+message UnsubscribeRequest {
+	// Protocol version 1.0
+	float version = 1;
+}
+
+message UnsubscribeResponse {
+	// Protocol version 1.0
+	float version = 1;
+}
+
+message GetPeersRequest {
+	// Protocol version 1.0
+	float version = 1;
+}
+
+message GetPeersResponse {
+	float version = 1;
+	repeated PeerInfo peers = 2;
+}
+
+message PeerInfo {
+	float version = 1;
+	string publickey = 2;
+	string multiaddress = 3;
+	string port = 4;
+}
