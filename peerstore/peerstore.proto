@@ -39,6 +39,6 @@ message GetPeersResponse {
 message PeerInfo {
 	float version = 1;
 	string publickey = 2;
-	string multiaddress = 3;
+	string address = 3;
 	string port = 4;
 }

@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x19peerstore/peerstore.proto\"<\n\x10SubscribeRequest\x12\x0f\n\x07version\x18\x01 \x01(\x02\x12\x17\n\x04peer\x18\x02 \x01(\x0b\x32\t.PeerInfo\"$\n\x11SubscribeResponse\x12\x0f\n\x07version\x18\x01 \x01(\x02\"%\n\x12UnsubscribeRequest\x12\x0f\n\x07version\x18\x01 \x01(\x02\"&\n\x13UnsubscribeResponse\x12\x0f\n\x07version\x18\x01 \x01(\x02\"\"\n\x0fGetPeersRequest\x12\x0f\n\x07version\x18\x01 \x01(\x02\"=\n\x10GetPeersResponse\x12\x0f\n\x07version\x18\x01 \x01(\x02\x12\x18\n\x05peers\x18\x02 \x03(\x0b\x32\t.PeerInfo\"R\n\x08PeerInfo\x12\x0f\n\x07version\x18\x01 \x01(\x02\x12\x11\n\tpublickey\x18\x02 \x01(\t\x12\x14\n\x0cmultiaddress\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\t2\xb0\x01\n\tPeerstore\x12\x34\n\tSubscribe\x12\x11.SubscribeRequest\x1a\x12.SubscribeResponse\"\x00\x12:\n\x0bUnsubscribe\x12\x13.UnsubscribeRequest\x1a\x14.UnsubscribeResponse\"\x00\x12\x31\n\x08GetPeers\x12\x10.GetPeersRequest\x1a\x11.GetPeersResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x19peerstore/peerstore.proto\"<\n\x10SubscribeRequest\x12\x0f\n\x07version\x18\x01 \x01(\x02\x12\x17\n\x04peer\x18\x02 \x01(\x0b\x32\t.PeerInfo\"$\n\x11SubscribeResponse\x12\x0f\n\x07version\x18\x01 \x01(\x02\"%\n\x12UnsubscribeRequest\x12\x0f\n\x07version\x18\x01 \x01(\x02\"&\n\x13UnsubscribeResponse\x12\x0f\n\x07version\x18\x01 \x01(\x02\"\"\n\x0fGetPeersRequest\x12\x0f\n\x07version\x18\x01 \x01(\x02\"=\n\x10GetPeersResponse\x12\x0f\n\x07version\x18\x01 \x01(\x02\x12\x18\n\x05peers\x18\x02 \x03(\x0b\x32\t.PeerInfo\"M\n\x08PeerInfo\x12\x0f\n\x07version\x18\x01 \x01(\x02\x12\x11\n\tpublickey\x18\x02 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\t2\xb0\x01\n\tPeerstore\x12\x34\n\tSubscribe\x12\x11.SubscribeRequest\x1a\x12.SubscribeResponse\"\x00\x12:\n\x0bUnsubscribe\x12\x13.UnsubscribeRequest\x1a\x14.UnsubscribeResponse\"\x00\x12\x31\n\x08GetPeers\x12\x10.GetPeersRequest\x1a\x11.GetPeersResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -246,7 +246,7 @@ _PEERINFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='multiaddress', full_name='PeerInfo.multiaddress', index=2,
+      name='address', full_name='PeerInfo.address', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -272,7 +272,7 @@ _PEERINFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=307,
-  serialized_end=389,
+  serialized_end=384,
 )
 
 _SUBSCRIBEREQUEST.fields_by_name['peer'].message_type = _PEERINFO
@@ -343,8 +343,8 @@ _PEERSTORE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=392,
-  serialized_end=568,
+  serialized_start=387,
+  serialized_end=563,
   methods=[
   _descriptor.MethodDescriptor(
     name='Subscribe',

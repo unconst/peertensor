@@ -11,11 +11,11 @@ class Peerstore(pstore_grpc.PeerstoreServicer):
 
     def __init__(self):
         logger.info('init peerstore servicer')
-        peers = {}
+        self.peers = {}
 
     def Subscribe(self, request, context):
         logger.info('subscribe {}', str(request))
-        peers[request.peer.publickey] = request.peer
+        self.peers[request.peer.publickey] = request.peer
         response = pstore_pb2.SubscribeResponse()
         return response
 
@@ -26,7 +26,7 @@ class Peerstore(pstore_grpc.PeerstoreServicer):
     
     def GetPeers(self, request, context):
         logger.info('getpeers {}', str(request))
-        response = pstore_pb2.GetPeersResponse(peers=peers.values())
+        response = pstore_pb2.GetPeersResponse(peers=self.peers.values())
         return response
 
 def main():
