@@ -2,11 +2,12 @@ from peerstore import peerstore_pb2
 from peerstore import peerstore_pb2_grpc
 import grpc
 from loguru import logger
+import argparse
 
-def main():
+def main(hparams):
     
     # Build stub.
-    address = "localhost:8888"
+    address = hparams.address
     channel = grpc.insecure_channel(address)
     stub = peerstore_pb2_grpc.PeerstoreStub(channel)
     logger.info('Connect to {}', address)
@@ -38,6 +39,16 @@ def main():
     logger.info('{}', str(response))
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+
+    # Server parameters.
+    parser.add_argument(
+        '--address',
+        default='localhost:8888',
+        type=str,
+        help="server address. Default address=localhost:8888")
+
+    hparams = parser.parse_args()
+    main(hparams)
 
 
