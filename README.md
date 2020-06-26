@@ -3,7 +3,7 @@
 # Run locally
 1. Install python
 
-'''
+```
 # Install python dependencies
 pip install -r requirments.txt
 
@@ -15,14 +15,14 @@ python server.py
 
 # Run the test client
 python client.py
-'''
+```
 
 # Run remote on Digital Ocean
 1. Install Docker
 
 1. Install Docker Machine
 
-'''
+```
 # Get API-token on Digital Ocean as $TOKEN
 $ TOKEN=(your api token)
 
@@ -43,7 +43,7 @@ $ ipaddress=$(eval docker-machine ip peerstore)
 
 # Test the server 
 python client --address=$ipaddress
-'''
+```
 
 
 
