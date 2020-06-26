@@ -6,6 +6,7 @@ import grpc
 import time
 
 from concurrent import futures
+from datetime import timedelta
 from loguru import logger
 from timeloop import Timeloop
 
@@ -57,7 +58,7 @@ def set_timed_loops(tl, config, server):
 def main(config):
     address = "[::]:8888"
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    peerstore = Peerstore()
+    peerstore = Peerstore(config)
     pstore_grpc.add_PeerstoreServicer_to_server(peerstore, server)
     server.add_insecure_port(address)
     
